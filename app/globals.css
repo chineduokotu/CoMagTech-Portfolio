@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/*.nav{
+  margin-top: 30px;
+}*/
+#p{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+input{
+  color:#fff
+}
+input::placeholder{
+  color: #ededed;
+}
+textarea::placeholder{
+  color: #ededed;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+

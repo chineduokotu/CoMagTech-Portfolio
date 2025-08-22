@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Destination</title>
+    <link rel="stylesheet" href="vac.css">
+</head>
+
+<body>
+    <header>
+        <h1>Vacation Destination Wish List</h1><br>
+        <p>Found exciting places to visit on your next vacation ? enter the form below to add them to your wish list.
+        </p>
+    </header>
+    <main>
+        <form id="destination-form">
+            <label for="name">Input Destination Name</label>
+            <input type="text" id="name" required placeholder="provide destination name">
+            <label for="location">Input Location</label>
+            <input type="text" id="location" required placeholder="provide destination location">
+            <label for="photo">Photo</label>
+            <input type="text" id="photo" placeholder="input photo  url (optional)">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" placeholder="describe the destination"></textarea>
+            <button type="submit">Add to List</button>
+
+
+        </form>
+
+        <article>
+            <h1 id="title">Enter destination details</h1>
+            <div id="destination-container">
+                <!--java script will handle this content-->
+                <div class="card">
+
+                </div>
+
+            </div>
+        </article>
+    </main>
+    <!--script file-->
+    <script src="vac.js"></script>
+
+</body>
+
+</html>
