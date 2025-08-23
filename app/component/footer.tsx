@@ -30,7 +30,7 @@ export default function Footer() {
               <img 
                 src={s.icon} 
                 alt={s.label} 
-                className="h-9 w-9 rounded-full border border-gray-700 p-1 transition-all duration-300 group-hover:scale-110 group-hover:border-red-500"
+                className="h-7 w-7 rounded-full border border-gray-700 p-1 transition-all duration-300 group-hover:scale-110 group-hover:border-red-500"
               />
               <span className="text-sm text-gray-400 transition-colors duration-300 group-hover:text-white">
                 {s.label}

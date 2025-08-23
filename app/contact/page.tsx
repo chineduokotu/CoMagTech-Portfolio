@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants, Transition } from "framer-motion";
 import { FaEnvelope, FaPhoneAlt, FaUser } from "react-icons/fa";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -17,13 +17,20 @@ function RotatingSphere() {
 }
 
 // === Stagger Animation Variants ===
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  show: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-  }),
+  show: (i: number = 0) => {
+    const transition: Transition = {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: "easeOut", // ✅ valid easing type
+    };
+    return {
+      opacity: 1,
+      y: 0,
+      transition,
+    };
+  },
 };
 
 export default function ContactPage() {
