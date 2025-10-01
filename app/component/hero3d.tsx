@@ -79,7 +79,7 @@ export default function Hero3D() {
             className="mt-8 flex flex-wrap gap-4"
           >
             <a
-              href="/projects"
+              href="/project"
               className="rounded-2xl px-6 py-3 font-semibold text-black bg-white hover:bg-gray-200 transition"
             >
               Explore Projects
@@ -102,7 +102,7 @@ export default function Hero3D() {
         >
           <div className="absolute -inset-6 -z-10 rounded-full bg-[conic-gradient(from_180deg_at_50%_50%,#a855f7,#22d3ee,transparent)] blur-3xl animate-spin-slow" />
           <Image
-            src="/chine.png"
+            src="/pro.jpg"
             alt="Chinedu"
             fill
             className="rounded-full object-cover shadow-2xl"

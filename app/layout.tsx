@@ -5,7 +5,7 @@ import Footer from "./component/footer";
 
 
 export const metadata = {
-title: "ChiTech | Chinedu Okotu",
+title: "CoMagTech | Chinedu Okotu",
 description: "Futuristic 3D portfolio by ChiTech",
 };
 

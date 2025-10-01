@@ -14,7 +14,7 @@ export default function Expand() {
           viewport={{ once: true }}
         >
           <Image
-            src="/tech.jpg"
+            src="/tec.jpg"
             alt="Explore"
             width={800}
             height={800}
