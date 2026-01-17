@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CoMagTech Portfolio 🚀
 
-## Getting Started
+A modern, responsive developer portfolio built with **Next.js**, **TypeScript**, and **Tailwind CSS**.  
+This project showcases my skills, projects, and services as a frontend/web developer under the **CoMagTech** brand.
 
-First, run the development server:
+![CoMagTech Portfolio Preview](./portfolio.jpg)
+
+## 🔗 Live Demo
+👉 https://co-mag-tech-portfolio.vercel.app
+
+---
+
+## ✨ Features
+
+- ⚡ Built with **Next.js** for fast performance and SEO
+- 🧠 Written in **TypeScript** for type safety and scalability
+- 🎨 Styled using **Tailwind CSS**
+- 📱 Fully responsive (mobile, tablet, desktop)
+- 🧩 Clean and modern UI/UX design
+- 🚀 Deployed on **Vercel**
+- 🧭 Smooth navigation between pages (Home, About, Work, Blog, Contact)
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+
+---
+
+## 📂 Project Structure
 
 ```bash
+├── app / pages        # Next.js routing
+├── components         # Reusable UI components
+├── public             # Static assets (images, icons)
+├── styles             # Global styles
+├── tsconfig.json      # TypeScript configuration
+├── tailwind.config.js # Tailwind CSS config
+└── README.md
+🚀 Getting Started
+1️⃣ Clone the repository
+bash
+Copy code
+git clone https://github.com/your-username/CoMagTech-Portfolio.git
+2️⃣ Navigate into the project
+bash
+Copy code
+cd CoMagTech-Portfolio
+3️⃣ Install dependencies
+bash
+Copy code
+npm install
+4️⃣ Run the development server
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open 👉 http://localhost:3000 in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📸 Screenshot
+Make sure the image below exists in your project:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+Copy code
+/public/portfolio.jpg
+And reference it in the README like this:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+md
+Copy code
+![Portfolio Preview](./portfolio.jpg)
+📬 Contact
+If you’d like to work together or have any questions:
 
-## Learn More
+Brand: CoMagTech
 
-To learn more about Next.js, take a look at the following resources:
+Name: Chinedu Okotu (Chichi)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Portfolio: https://co-mag-tech-portfolio.vercel.app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📝 License
+This project is open-source and available under the MIT License.
