@@ -56,7 +56,7 @@ export default function Hero3D() {
             transition={{ duration: 0.7 }}
             className="text-5xl font-extrabold leading-tight md:text-7xl text-white"
           >
-            We Create{" "}
+            We Build {" "}
             <span className="bg-gradient-to-r from-fuchsia-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent">
               Future-Ready Websites
             </span>
