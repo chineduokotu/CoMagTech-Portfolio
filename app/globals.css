@@ -1,8 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0f;
+  --body-bg: linear-gradient(180deg, #07070b 0%, #0a0a0f 42%, #050508 100%);
+  --foreground: #f8fafc;
+  --muted: #94a3b8;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-strong: rgba(255, 255, 255, 0.06);
+  --surface-strong2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --card-border: rgba(255, 255, 255, 0.10);
+  --nav-bg: rgba(8, 8, 12, 0.85);
+  --button-bg: #ffffff;
+  --button-text: #0f172a;
+  --text-inverse: #0f172a;
+  --accent: #38bdf8;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+}
+
+[data-theme="light"] {
+  --background: #f8fafc;
+  --body-bg: linear-gradient(180deg, #ffffff 0%, #f8fafc 42%, #e2e8f0 100%);
+  --foreground: #0f172a;
+  --muted: #1f2937;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-strong: rgba(255, 255, 255, 0.98);
+  --surface-strong2: rgba(148, 163, 184, 0.12);
+  --border: rgba(15, 23, 42, 0.12);
+  --card-border: rgba(15, 23, 42, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --button-bg: #0f172a;
+  --button-text: #f8fafc;
+  --text-inverse: #ffffff;
+  --accent: #075985;
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
 }
 
 @theme inline {
@@ -12,43 +43,247 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background: var(--body-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-/*.nav{
-  margin-top: 30px;
-}*/
-#p{
-  font-size: 30px;
-  font-weight: 700;
+  font-family: var(--font-space-grotesk), Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-input{
-  color:#fff
-}
-input::placeholder{
-  color: #ededed;
-}
-textarea::placeholder{
-  color: #ededed;
+::selection {
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--text-inverse);
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradientShift 6s ease infinite;
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
 }
 
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  color: var(--foreground);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+.page-shell {
+  background: transparent;
+  color: inherit;
+}
+
+.nav-shell {
+  background: var(--nav-bg);
+  border-color: var(--border);
+}
+
+.mobile-menu-shell {
+  background: var(--nav-bg);
+  border-color: var(--border);
+}
+
+.hero-image-shell {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.footer-shell {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.panel-surface {
+  background: var(--surface);
+}
+
+.bg-surface {
+  background: var(--surface);
+}
+
+.bg-surface-strong {
+  background: var(--surface-strong);
+}
+
+.bg-surface-strong2 {
+  background: var(--surface-strong2);
+}
+
+.border-surface {
+  border-color: var(--border);
+}
+
+.text-primary {
+  color: var(--foreground);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.tag-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.theme-toggle {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+@layer components {
+  .section-shell {
+    @apply relative px-6 py-24 md:py-32;
+  }
+
+  .section-band {
+    border-color: var(--border);
+    background: var(--surface-strong);
+  }
+
+  .section-title {
+    color: var(--foreground);
+    @apply text-4xl font-bold leading-[1.04] tracking-tight md:text-5xl;
+  }
+
+  .section-label {
+    color: var(--accent);
+    border-color: currentColor;
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .border-accent {
+    border-color: var(--accent);
+  }
+
+  .hover-border-accent:hover {
+    border-color: var(--accent);
+  }
+
+  .hover-text-accent:hover {
+    color: var(--accent);
+  }
+
+  .glass-card {
+    background: var(--surface);
+    border-color: var(--card-border);
+    box-shadow: var(--shadow);
+    @apply rounded-2xl border backdrop-blur-md;
+  }
+
+  .field {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+    @apply w-full rounded-xl border px-4 py-4 outline-none transition;
+  }
+
+  .field::placeholder {
+    color: var(--muted);
+  }
+
+  .project-link {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+    @apply inline-flex items-center gap-1 rounded-full border px-4 py-2 text-sm font-semibold transition hover:text-white;
+  }
+
+  .hero-title {
+    color: #ffffff;
+    text-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-copy {
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+  }
+
+  .button-primary {
+    background: var(--button-bg);
+    color: var(--button-text);
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-bold transition hover:-translate-y-1;
+  }
+
+  .button-secondary {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 font-bold transition hover:-translate-y-1;
+  }
+
+  .filter-button {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--muted);
+    @apply rounded-full border px-4 py-2 text-sm font-semibold transition;
+  }
+
+  .filter-button-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-inverse);
+    @apply rounded-full border px-4 py-2 text-sm font-semibold;
+  }
+
+  .social-link {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--foreground);
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition;
+  }
+
+  /* Theme-aware nav link styles for better light/dark contrast */
+  .nav-link {
+    color: var(--muted);
+  }
+
+  .nav-link:hover {
+    background: var(--surface-strong);
+    color: var(--foreground);
+  }
+
+  .nav-link-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-inverse);
+  }
+
+  .mobile-nav-link {
+    color: var(--muted);
+  }
+
+  .mobile-nav-link:hover {
+    background: var(--surface);
+    color: var(--foreground);
+  }
+
+  .mobile-nav-link-active {
+    background: var(--accent);
+    color: var(--text-inverse);
+  }
+}

@@ -1,48 +1,66 @@
-import Link from "next/link";
+import { Github, Instagram, Linkedin, MessageCircle, Twitter } from "lucide-react";
+
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#services", label: "Services" },
+  { href: "#projects", label: "Work" },
+  { href: "#blog", label: "Blog" },
+  { href: "#contact", label: "Contact" },
+];
 
 const socials = [
-  { href: "https://www.facebook.com/share/1A4pH4bF1F/?mibextid=wwXIfr", label: "Facebook", icon: "/facebook.png" },
-  { href: "https://wa.link/s8pfjy", label: "WhatsApp", icon: "/whatsapp.png" },
-  { href: "https://x.com/chineduoko54093?s=21", label: "X", icon: "/twitter.png" },
-  { href: "https://www.instagram.com/okotuchinedu", label: "Instagram", icon: "/instagram.png" },
-  { href: "https://youtube.com/@chitech_coding", label: "YouTube", icon: "/youtube.png" },
-  { href: "https://www.tiktok.com/@script.guru6", label: "TikTok", icon: "/tiktok.png" },
-  { href: "https://www.linkedin.com/in/chinedu-okotu-5630a533b", label: "LinkedIn", icon: "/linkedin.png" },
+  { href: "https://www.linkedin.com/in/chinedu-okotu-5630a533b", label: "LinkedIn", icon: Linkedin },
+  { href: "https://github.com/ChineduOkotu", label: "GitHub", icon: Github },
+  { href: "https://x.com/chineduoko54093?s=21", label: "X", icon: Twitter },
+  { href: "https://wa.link/s8pfjy", label: "WhatsApp", icon: MessageCircle },
+  { href: "https://www.instagram.com/okotuchinedu", label: "Instagram", icon: Instagram },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-300 py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
-        
-    
-        {/* Socials */}
-        <div className="flex flex-wrap items-center gap-6">
-          {socials.map((s) => (
-            <Link 
-              key={s.href} 
-              href={s.href} 
-              target="_blank" 
-              className="flex items-center gap-2 group"
-            >
-              <img 
-                src={s.icon} 
-                alt={s.label} 
-                className="h-7 w-7 rounded-full border border-gray-700 p-1 transition-all duration-300 group-hover:scale-110 group-hover:border-red-500"
-              />
-              <span className="text-sm text-gray-400 transition-colors duration-300 group-hover:text-white">
-                {s.label}
-              </span>
-            </Link>
-          ))}
+    <footer className="footer-shell border-t px-6 py-12">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr_0.8fr]">
+        <div>
+          <a href="#hero" className="text-2xl font-black text-primary">
+            CoMagTech
+          </a>
+          <p className="mt-4 max-w-sm leading-7 text-muted">
+            Full-stack websites, product interfaces, and immersive web experiences by Chinedu Okotu.
+          </p>
         </div>
-            {/* Copyright */}
-        <p className="text-sm text-gray-500" id='foot'>
-          © {year} <span className="font-semibold text-red-600">CoMagTech</span>. All rights reserved.
-        </p>
-
+        <div>
+          <h3 className="text-sm font-black uppercase tracking-[0.24em]">Quick links</h3>
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            {links.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm transition hover-text-accent">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="text-sm font-black uppercase tracking-[0.24em]">Socials</h3>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {socials.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className="social-link"
+                aria-label={label}
+              >
+                <Icon size={17} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6 text-sm">
+        Copyright (c) {year} CoMagTech. All rights reserved.
       </div>
     </footer>
   );

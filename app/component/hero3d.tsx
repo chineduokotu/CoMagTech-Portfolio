@@ -102,7 +102,7 @@ export default function Hero3D() {
         >
           <div className="absolute -inset-6 -z-10 rounded-full bg-[conic-gradient(from_180deg_at_50%_50%,#a855f7,#22d3ee,transparent)] blur-3xl animate-spin-slow" />
           <Image
-            src="/pro.jpg"
+            src="/pro.png"
             alt="Chinedu"
             fill
             className="rounded-full object-cover shadow-2xl"

@@ -1,80 +1,148 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-//import ThreeDText from "./3d";
+
+import { useEffect, useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/project", label: "Work" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "#about", label: "About", id: "about" },
+  { href: "#skills", label: "Skills", id: "skills" },
+  { href: "#services", label: "Services", id: "services" },
+  { href: "#projects", label: "Work", id: "projects" },
+  { href: "#blog", label: "Blog", id: "blog" },
+  { href: "#contact", label: "Contact", id: "contact" },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("hero");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.getElementById(link.id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    const storedTheme = localStorage.getItem("theme");
+    const initialTheme = storedTheme
+      ? (storedTheme as "light" | "dark")
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+
+    setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) setActive(visible.target.id);
+      },
+      { rootMargin: "-35% 0px -50% 0px", threshold: [0.1, 0.25, 0.5] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  function handleClick() {
+    setOpen(false);
+  }
+
+  function toggleTheme() {
+    setTheme((current) => (current === "dark" ? "light" : "dark"));
+  }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        {/* === Brand / Logo === */}
-        <Link href="/" className="text-2xl font-extrabold tracking-wide">
-          <span className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent animate-gradient">
-            CoMagTech
+    <nav className="nav-shell fixed left-0 right-0 top-0 z-50 border-b backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+        <a href="#hero" onClick={handleClick} className="group text-lg font-black tracking-wide md:text-2xl">
+          <span className="text-primary">CoMagTech</span>
+          <span className="ml-2 hidden text-xs font-bold uppercase tracking-[0.35em] text-muted sm:inline">
+            Chinedu
           </span>
-        </Link>
+        </a>
 
-        {/* === Desktop Menu === */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`relative transition-colors ${
-                pathname === l.href
-                  ? "text-purple-300"
-                  : "text-gray-300 hover:text-purple-300"
+        <div className="hidden items-center gap-3 lg:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition nav-link ${
+                active === link.id ? "nav-link-active" : ""
               }`}
             >
-              {l.label}
-              {/* underline effect */}
-              {pathname === l.href && (
-                <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-300 rounded-full"></span>
-              )}
-            </Link>
+              {link.label}
+            </a>
           ))}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="theme-toggle hidden h-10 w-10 items-center justify-center rounded-full border lg:inline-flex"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
 
-        {/* === Mobile Toggle === */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-gray-300 hover:text-purple-300"
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <a
+            href="#contact"
+            className="hidden rounded-full button-primary px-5 py-2.5 md:inline-flex"
+          >
+            Hire Me
+          </a>
+
+          <button
+            type="button"
+            aria-label="Toggle navigation menu"
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-surface bg-surface-strong text-primary lg:hidden"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
-      {/* === Mobile Menu === */}
       {open && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-black/90 backdrop-blur-lg border-b border-white/10">
-          <div className="flex flex-col items-center gap-6 py-6">
-            {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className={`text-lg transition-colors ${
-                  pathname === l.href
-                    ? "text-purple-300 font-semibold"
-                    : "text-gray-300 hover:text-purple-300"
+        <div className="border-t mobile-menu-shell px-5 py-5 backdrop-blur-xl lg:hidden">
+          <div className="mx-auto grid max-w-7xl gap-2">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleClick}
+                className={`rounded-2xl px-4 py-3 text-base font-semibold mobile-nav-link ${
+                  active === link.id ? "mobile-nav-link-active" : ""
                 }`}
               >
-                {l.label}
-              </Link>
+                {link.label}
+              </a>
             ))}
+            <a
+              href="#contact"
+              onClick={handleClick}
+              className="mt-2 rounded-2xl button-primary px-4 py-3 text-base font-black"
+            >
+              Hire Me
+            </a>
+            <button
+              type="button"
+              onClick={() => {
+                toggleTheme();
+                handleClick();
+              }}
+              className="mt-2 rounded-2xl border border-surface bg-surface px-4 py-3 text-base font-semibold text-primary"
+            >
+              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+            </button>
           </div>
         </div>
       )}
