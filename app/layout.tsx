@@ -19,7 +19,7 @@ description: "Professional portfolio for Chinedu Okotu, a full-stack developer b
 const setThemeScript = `
 (function(){
   var storedTheme = window.localStorage.getItem('theme');
-  var theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var theme = storedTheme || 'dark';
   document.documentElement.setAttribute('data-theme', theme);
 })();
 `;

@@ -25,9 +25,7 @@ export default function Navbar() {
     const storedTheme = localStorage.getItem("theme");
     const initialTheme = storedTheme
       ? (storedTheme as "light" | "dark")
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+      : "dark";
 
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
@@ -40,7 +38,7 @@ export default function Navbar() {
 
         if (visible?.target.id) setActive(visible.target.id);
       },
-      { rootMargin: "-35% 0px -50% 0px", threshold: [0.1, 0.25, 0.5] }
+      { rootMargin: "-35% 0px -50% 0px", threshold: [0.1, 0.25, 0.5] },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -63,7 +61,11 @@ export default function Navbar() {
   return (
     <nav className="nav-shell fixed left-0 right-0 top-0 z-50 border-b backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <a href="#hero" onClick={handleClick} className="group text-lg font-black tracking-wide md:text-2xl">
+        <a
+          href="#hero"
+          onClick={handleClick}
+          className="group text-lg font-black tracking-wide md:text-2xl"
+        >
           <span className="text-primary">CoMagTech</span>
           <span className="ml-2 hidden text-xs font-bold uppercase tracking-[0.35em] text-muted sm:inline">
             Chinedu
