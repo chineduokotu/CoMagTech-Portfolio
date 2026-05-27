@@ -100,6 +100,29 @@ const skillGroups = [
       { name: "SQLite", icon: Database },
     ],
   },
+  {
+    title: "Mobile App",
+    icon: Smartphone,
+    skills: [
+      { name: "Flutter", icon: Smartphone },
+      { name: "React Native", icon: Smartphone },
+      { name: "Java", icon: Code2 },
+      { name: "Swift", icon: Code2 },
+    ],
+  },
+  {
+    title: "DevOps & Deployment",
+    icon: Cloud,
+    skills: [
+      { name: "Docker", icon: Package },
+      { name: "Kubernetes", icon: Layers3 },
+      { name: "AWS", icon: Cloud },
+      { name: "Azure", icon: Cloud },
+      { name: "Google Cloud", icon: Cloud },
+      { name: "Jenkins", icon: Rocket },
+      { name: "Python", icon: TerminalSquare },
+    ],
+  },
 ];
 
 const services = [
@@ -126,6 +149,18 @@ const services = [
     description:
       "Immersive Three.js scenes, product motion, animated sections, and interactive details that make brands memorable.",
     icon: WandSparkles,
+  },
+  {
+    title: "AI Automation",
+    description:
+      "Integrating intelligent workflows, AI models, and automated operational logic to reduce manual tasks and scale efficiency.",
+    icon: Cpu,
+  },
+  {
+    title: "SEO & Deployment",
+    description:
+      "Search-optimized technical structure, performance auditing, smooth CI/CD pipelines, and secure cloud hosting setups.",
+    icon: Rocket,
   },
 ];
 
@@ -380,8 +415,8 @@ export default function Home() {
               Full-stack web experiences with depth, speed, and intent.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 hero-copy md:text-xl">
-              We build polished websites, full-stack products, and immersive
-              Three.js interfaces for businesses that need credibility, clarity,
+              As a dedicated Website Developer in Benin City, Nigeria, we build polished websites, full-stack products, and immersive
+              Three.js interfaces for businesses globally that need credibility, clarity,
               and execution.
             </p>
             <div className="mt-8 grid max-w-xl grid-cols-3 border-y border-surface py-5 text-sm hero-copy">
@@ -394,7 +429,11 @@ export default function Home() {
                 View Work
                 <ArrowUpRight size={18} />
               </a>
-              <a href="/cv.pdf" download className="button-secondary">
+              <a href="https://wa.link/s8pfjy" target="_blank" rel="noreferrer" className="button-secondary bg-emerald-950/40 text-emerald-400 hover:bg-emerald-900/60 border-emerald-500/30">
+                <MessageCircle size={18} />
+                Chat on WhatsApp
+              </a>
+              <a href="/cv.pdf" download className="button-secondary hidden sm:flex">
                 <Download size={18} />
                 Download CV
               </a>
@@ -441,9 +480,9 @@ export default function Home() {
               We turn ideas into interfaces that can be trusted.
             </h2>
             <p className="mt-6 text-lg leading-8 text-muted">
-              At CoMagTech, our Lead Engineer Chinedu Okotu focuses on practical
+              At CoMagTech, our Lead Engineer Chinedu Okotu (a premier Website Developer in Nigeria) focuses on practical
               product outcomes: fast pages, clean flows, dependable APIs, and
-              interfaces that make people confident enough to take action.
+              interfaces that make people confident enough to take action locally and internationally.
             </p>
             <p className="mt-4 text-lg leading-8 text-muted">
               Our strongest work sits at the intersection of engineering and

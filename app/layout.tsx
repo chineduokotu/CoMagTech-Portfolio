@@ -16,12 +16,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://co-mag-tech-portfol
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Chinedu Okotu | Full-Stack Developer & Creative Engineer",
-  description: "Professional portfolio for Chinedu Okotu, a full-stack developer building immersive web experiences with Next.js, React, Node.js, and Three.js.",
-  keywords: ["Full-Stack Developer", "Next.js", "React", "Three.js", "Portfolio", "Chinedu Okotu", "CoMagTech", "Web Development"],
+  title: "Chinedu Okotu | Expert Website Developer in Nigeria",
+  description: "Professional portfolio for Chinedu Okotu, top Website Developer in Benin City, Nigeria. Specializing in Next.js, React, Node.js, and immersive Three.js full-stack experiences.",
+  keywords: ["Website Developer in Nigeria",  "Website Developer in Benin City", "Website Developer in Lagos", "Full-Stack Developer",  "Mobile App Developer in Nigeria", "Website Designer in Nigeria", "Next.js", "React", "Three.js", "Portfolio", "Chinedu Okotu", "CoMagTech", "Web Development", "Nigeria Web Designer"],
   openGraph: {
-    title: "Chinedu Okotu | Full-Stack Developer & Creative Engineer",
-    description: "Professional portfolio for Chinedu Okotu, a full-stack developer building immersive web experiences with Next.js, React, Node.js, and Three.js.",
+    title: "Chinedu Okotu | Expert Website Developer in Nigeria",
+    description: "Professional portfolio for Chinedu Okotu, top Website Developer in Benin City, Nigeria. Specializing in Next.js, React, Node.js, and immersive Three.js full-stack experiences.",
     url: siteUrl,
     siteName: "Chinedu Okotu Portfolio",
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/pro.png", 
         width: 800,
         height: 600,
-        alt: "Chinedu Okotu - Full-Stack Developer",
+        alt: "Chinedu Okotu - Website Developer in Nigeria",
       },
     ],
     locale: "en_US",
