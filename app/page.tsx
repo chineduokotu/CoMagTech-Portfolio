@@ -175,9 +175,44 @@ const clients = [
   "Remote Teams",
 ];
 
-const filters = ["All", "Frontend", "Full-Stack", "Creative", "Tools"];
+const filters = ["All", "Mobile", "Frontend", "Full-Stack", "Creative", "Tools"];
 
-const projects = [
+const projects: {
+  title: string;
+  description: string;
+  category: string;
+  tech: string[];
+  live: string;
+  github?: string;
+  img: string;
+}[] = [
+  {
+    title: "HelpMe AI",
+    description:
+      "An AI-powered errands assistant for airtime and data, bill payments, transfers, food orders, deliveries, and local services.",
+    category: "Mobile",
+    tech: ["Android", "AI Assistant", "Everyday Services"],
+    live: "https://play.google.com/store/apps/details?id=com.chine.helpmeaiapp",
+    img: "/images/helpme-ai-app.png",
+  },
+  {
+    title: "TradeFair Marketplace App",
+    description:
+      "A mobile shopping app for discovering retail and wholesale products, browsing categories, and finding new arrivals.",
+    category: "Mobile",
+    tech: ["Android", "E-commerce", "Marketplace"],
+    live: "https://play.google.com/store/apps/details?id=store.tradefaire.app",
+    img: "/images/tradefair-app.png",
+  },
+  {
+    title: "Cryptorian",
+    description:
+      "A cryptocurrency trading app for trading digital assets and following crypto market movements.",
+    category: "Mobile",
+    tech: ["Android", "Crypto Trading", "Digital Assets"],
+    live: "https://play.google.com/store/apps/details?id=com.mastercrypto.app",
+    img: "/images/master-crypto-app.png",
+  },
   {
     title: "Havital Properties",
     description:
@@ -617,8 +652,8 @@ export default function Home() {
             <div>
               <h2 className="section-title max-w-3xl">Selected work</h2>
               <p className="mt-4 max-w-2xl text-lg text-muted">
-                A focused set of product interfaces, business websites, and
-                utility builds.
+                A focused set of mobile apps, product interfaces, business
+                websites, and utility builds.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -644,7 +679,9 @@ export default function Home() {
                 whileHover={{ y: -8, rotateX: 2, rotateY: -2 }}
                 className="group glass-card overflow-hidden"
               >
-                <div className="relative aspect-[16/11] overflow-hidden">
+                <div
+                  className={`relative ${project.category === "Mobile" ? "aspect-[2/1]" : "aspect-[16/11]"} overflow-hidden`}
+                >
                   <Image
                     src={project.img}
                     alt={project.title}
@@ -679,16 +716,19 @@ export default function Home() {
                       }
                       className="project-link"
                     >
-                      Live <ArrowUpRight size={15} />
+                      {project.category === "Mobile" ? "Google Play" : "Live"}{" "}
+                      <ArrowUpRight size={15} />
                     </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="project-link"
-                    >
-                      GitHub <Github size={15} />
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link"
+                      >
+                        GitHub <Github size={15} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.article>
